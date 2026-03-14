@@ -43,7 +43,7 @@ export default function Contact() {
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-          {/* Left column — Details */}
+          {/* Left column - Details */}
           <motion.div
             className="space-y-8"
             variants={fadeUp}
@@ -110,7 +110,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right column — Map */}
+          {/* Right column - Map */}
           <motion.div
             variants={fadeUp}
             initial="hidden"

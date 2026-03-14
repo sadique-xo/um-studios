@@ -23,7 +23,7 @@ export default function About() {
         ref={ref}
         className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center"
       >
-        {/* Left — copy */}
+        {/* Left - copy */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
@@ -55,7 +55,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Right — image placeholder */}
+        {/* Right - image placeholder */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
