@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id          String    @id @default(uuid())
+  name        String
+  category    String
+  description String
+  durationMin Int       @map("duration_min")
+  price       Int
+  priceLabel  String?   @map("price_label")
+  isActive    Boolean   @default(true) @map("is_active")
+  sortOrder   Int       @default(0) @map("sort_order")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  bookings    Booking[]
+
+  @@map("services")
+}
+
+model Booking {
+  id            String   @id @default(uuid())
+  customerName  String   @map("customer_name")
+  customerPhone String   @map("customer_phone")
+  customerEmail String?  @map("customer_email")
+  serviceId     String   @map("service_id")
+  service       Service  @relation(fields: [serviceId], references: [id])
+  preferredDate DateTime @map("preferred_date") @db.Date
+  preferredTime String   @map("preferred_time")
+  notes         String?
+  status        String   @default("pending")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("bookings")
+}
+
+model Gallery {
+  id        String   @id @default(uuid())
+  imageUrl  String   @map("image_url")
+  caption   String?
+  category  String
+  sortOrder Int      @default(0) @map("sort_order")
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("gallery")
+}
+
+model Settings {
+  id             Int    @id @default(1)
+  salonName      String @default("UM Studios") @map("salon_name")
+  tagline        String @default("Not just another salon. It's a masterpiece.")
+  phonePrimary   String @default("+91 80921 61616") @map("phone_primary")
+  phoneSecondary String @default("+91 80921 41414") @map("phone_secondary")
+  email          String @default("")
+  address        String @default("4th Floor, Hall No. 4A, Damyantika Complex, East Jail Road, Near Plaza Chowk, Lalpur, Ranchi, Jharkhand – 834001")
+  googleMapsUrl  String @default("") @map("google_maps_url")
+  openingTime    String @default("10:00") @map("opening_time")
+  closingTime    String @default("21:00") @map("closing_time")
+  instagramUrl   String @default("https://www.instagram.com/um.studios/") @map("instagram_url")
+  facebookUrl    String @default("https://www.facebook.com/umstudiosranchi/") @map("facebook_url")
+
+  @@map("settings")
+}
