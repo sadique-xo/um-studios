@@ -82,6 +82,17 @@ export default function Footer() {
           <p className="text-center text-xs tracking-wide text-[#F5F0E8]/50">
             &copy; {new Date().getFullYear()} UM Studios, Ranchi. All rights reserved.
           </p>
+          <p className="mt-2 text-center text-xs tracking-wide text-[#F5F0E8]/40">
+            Built with love by{" "}
+            <a
+              href="https://sadique.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C8A35F]/80 hover:text-[#C8A35F] transition-colors"
+            >
+              sadique.co
+            </a>
+          </p>
         </div>
       </div>
     </footer>

@@ -24,7 +24,10 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://umstudios.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "UM Studios – Premium Unisex Salon & Spa in Ranchi",
   description:
     "Experience luxury grooming and wellness at UM Studios, Ranchi's premier unisex salon and spa. Expert hair styling, skincare, bridal packages, and relaxing spa treatments in an elegant setting. Book your appointment today.",
@@ -35,11 +38,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "UM Studios",
+    images: ["/social_image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "UM Studios – Premium Unisex Salon & Spa in Ranchi",
     description: "Ranchi's premium unisex salon. Expert hairdressing, bridal makeup, nail art, vedic spa & skin care.",
+    images: ["/social_image.jpg"],
   },
 };
 
